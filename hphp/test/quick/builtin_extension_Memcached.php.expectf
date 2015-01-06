@@ -1,0 +1,193 @@
+Memcached
+object(Memcached)#1 (0) {
+}
+
+Warning: Attempted to serialize unserializable builtin class Memcached in %s/test/quick/builtin_extensions.inc on line 8
+string(2) "N;"
+NULL
+array(43) {
+  [0]=>
+  string(11) "__construct"
+  [1]=>
+  string(3) "add"
+  [2]=>
+  string(8) "addByKey"
+  [3]=>
+  string(9) "addServer"
+  [4]=>
+  string(10) "addServers"
+  [5]=>
+  string(6) "append"
+  [6]=>
+  string(11) "appendByKey"
+  [7]=>
+  string(3) "cas"
+  [8]=>
+  string(8) "casByKey"
+  [9]=>
+  string(9) "decrement"
+  [10]=>
+  string(14) "decrementByKey"
+  [11]=>
+  string(6) "delete"
+  [12]=>
+  string(11) "deleteByKey"
+  [13]=>
+  string(5) "fetch"
+  [14]=>
+  string(8) "fetchAll"
+  [15]=>
+  string(5) "flush"
+  [16]=>
+  string(3) "get"
+  [17]=>
+  string(10) "getAllKeys"
+  [18]=>
+  string(8) "getByKey"
+  [19]=>
+  string(10) "getDelayed"
+  [20]=>
+  string(15) "getDelayedByKey"
+  [21]=>
+  string(8) "getMulti"
+  [22]=>
+  string(13) "getMultiByKey"
+  [23]=>
+  string(9) "getOption"
+  [24]=>
+  string(13) "getResultCode"
+  [25]=>
+  string(16) "getResultMessage"
+  [26]=>
+  string(14) "getServerByKey"
+  [27]=>
+  string(13) "getServerList"
+  [28]=>
+  string(15) "resetServerList"
+  [29]=>
+  string(8) "getStats"
+  [30]=>
+  string(10) "getVersion"
+  [31]=>
+  string(9) "increment"
+  [32]=>
+  string(14) "incrementByKey"
+  [33]=>
+  string(7) "prepend"
+  [34]=>
+  string(12) "prependByKey"
+  [35]=>
+  string(7) "replace"
+  [36]=>
+  string(12) "replaceByKey"
+  [37]=>
+  string(3) "set"
+  [38]=>
+  string(8) "setByKey"
+  [39]=>
+  string(8) "setMulti"
+  [40]=>
+  string(13) "setMultiByKey"
+  [41]=>
+  string(9) "setOption"
+  [42]=>
+  string(10) "setOptions"
+}
+================
+A_Memcached
+object(A_Memcached)#2 (1) {
+  ["___x"]=>
+  NULL
+}
+
+Warning: Attempted to serialize unserializable builtin class A_Memcached in %s/test/quick/builtin_extensions.inc on line 26
+string(2) "N;"
+NULL
+array(43) {
+  [0]=>
+  string(11) "__construct"
+  [1]=>
+  string(3) "add"
+  [2]=>
+  string(8) "addByKey"
+  [3]=>
+  string(9) "addServer"
+  [4]=>
+  string(10) "addServers"
+  [5]=>
+  string(6) "append"
+  [6]=>
+  string(11) "appendByKey"
+  [7]=>
+  string(3) "cas"
+  [8]=>
+  string(8) "casByKey"
+  [9]=>
+  string(9) "decrement"
+  [10]=>
+  string(14) "decrementByKey"
+  [11]=>
+  string(6) "delete"
+  [12]=>
+  string(11) "deleteByKey"
+  [13]=>
+  string(5) "fetch"
+  [14]=>
+  string(8) "fetchAll"
+  [15]=>
+  string(5) "flush"
+  [16]=>
+  string(3) "get"
+  [17]=>
+  string(10) "getAllKeys"
+  [18]=>
+  string(8) "getByKey"
+  [19]=>
+  string(10) "getDelayed"
+  [20]=>
+  string(15) "getDelayedByKey"
+  [21]=>
+  string(8) "getMulti"
+  [22]=>
+  string(13) "getMultiByKey"
+  [23]=>
+  string(9) "getOption"
+  [24]=>
+  string(13) "getResultCode"
+  [25]=>
+  string(16) "getResultMessage"
+  [26]=>
+  string(14) "getServerByKey"
+  [27]=>
+  string(13) "getServerList"
+  [28]=>
+  string(15) "resetServerList"
+  [29]=>
+  string(8) "getStats"
+  [30]=>
+  string(10) "getVersion"
+  [31]=>
+  string(9) "increment"
+  [32]=>
+  string(14) "incrementByKey"
+  [33]=>
+  string(7) "prepend"
+  [34]=>
+  string(12) "prependByKey"
+  [35]=>
+  string(7) "replace"
+  [36]=>
+  string(12) "replaceByKey"
+  [37]=>
+  string(3) "set"
+  [38]=>
+  string(8) "setByKey"
+  [39]=>
+  string(8) "setMulti"
+  [40]=>
+  string(13) "setMultiByKey"
+  [41]=>
+  string(9) "setOption"
+  [42]=>
+  string(10) "setOptions"
+}

@@ -1,0 +1,107 @@
+(**
+ * Copyright (c) 2014, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the "hack" directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ *)
+
+open Lexing
+
+(* Note: While Pos.string prints out positions as closed intervals, pos_start
+ * and pos_end actually form a half-open interval (i.e. pos_end points to the
+ * character *after* the last character of the relevant lexeme.) *)
+type t = {
+  pos_file: string ;
+  pos_start: Lexing.position ;
+  pos_end: Lexing.position ;
+}
+
+let file = ref ""
+
+let none = {
+  pos_file = "" ;
+  pos_start = dummy_pos ;
+  pos_end = dummy_pos ;
+}
+
+let filename p = p.pos_file
+
+let make (lb:Lexing.lexbuf) =
+ let pos_start = lexeme_start_p lb in
+ let pos_end = lexeme_end_p lb in
+ { pos_file = !file; pos_start = pos_start ;
+   pos_end = pos_end }
+
+let make_from_file() =
+  let pos = Lexing.dummy_pos in
+  { pos_file = !file;
+    pos_start = pos;
+    pos_end = pos;
+  }
+
+let make_from file =
+  let pos = Lexing.dummy_pos in
+  { pos_file = file;
+    pos_start = pos;
+    pos_end = pos;
+  }
+
+let btw x1 x2 =
+  if x1.pos_file <> x2.pos_file
+  then failwith "Position in separate files" ;
+  if x1.pos_end > x2.pos_end
+  then failwith "Invalid positions Pos.btw" ;
+  { x1 with pos_end = x2.pos_end }
+
+let lhs p =
+  { p with pos_end = p.pos_start }
+
+let rhs p =
+  { p with pos_start = p.pos_end }
+
+let info_pos t =
+  let line = t.pos_start.pos_lnum in
+  let start = t.pos_start.pos_cnum - t.pos_start.pos_bol + 1 in
+  let end_ = t.pos_end.pos_cnum - t.pos_start.pos_bol in
+  line, start, end_
+
+let info_raw t = t.pos_start.pos_cnum, t.pos_end.pos_cnum
+let length t = t.pos_end.pos_cnum - t.pos_start.pos_cnum
+
+let string t =
+  let line, start, end_ = info_pos t in
+  Printf.sprintf "File %S, line %d, characters %d-%d:"
+    t.pos_file line start end_
+
+let json pos =
+    let line, start, end_ = info_pos pos in
+    let fn = filename pos in
+    Hh_json.JAssoc [ "filename",   Hh_json.JString fn;
+             "line",       Hh_json.JInt line;
+             "char_start", Hh_json.JInt start;
+             "char_end",   Hh_json.JInt end_;
+           ]
+
+let inside p line char_pos =
+  let first_line = p.pos_start.pos_lnum in
+  let last_line = p.pos_end.pos_lnum in
+  if first_line = last_line then
+    let _, start, end_ = info_pos p in
+    first_line = line && start <= char_pos && char_pos <= end_
+  else
+    if line = first_line then char_pos > (p.pos_start.pos_cnum - p.pos_start.pos_bol)
+    else if line = last_line then char_pos <= (p.pos_end.pos_cnum - p.pos_end.pos_bol)
+    else line > first_line && line < last_line
+
+let compare x y =
+  String.compare (string x) (string y)
+
+let set_line pos value =
+  let pos_start = pos.pos_start in
+  let pos_end = pos.pos_end in
+  let pos_start = { pos_start with pos_lnum = value } in
+  let pos_end = { pos_end with pos_lnum = value } in
+  { pos with pos_start; pos_end }

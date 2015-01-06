@@ -1,0 +1,19 @@
+float(2.2360679774998)
+float(1.5811388300842)
+float(NAN)
+float(1)
+float(0)
+float(0)
+float(3.8729833462074)
+
+Warning: sqrt() expects parameter 1 to be double, string given in %s on line 10
+NULL
+
+Warning: sqrt() expects parameter 1 to be double, object given in %s on line 11
+NULL
+
+Warning: sqrt() expects parameter 1 to be double, array given in %s on line 12
+NULL
+
+Warning: sqrt() expects parameter 1 to be double, array given in %s on line 13
+NULL
